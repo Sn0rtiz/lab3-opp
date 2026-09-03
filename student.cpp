@@ -30,13 +30,21 @@ class Student
 			bool full= false;
 		}
 		//Con parametros: TODO (Parte D): Constructor with parameters (name, id, gpa).
-		/*Student(string n; int i; double g;)
+		Student(string n, int i, double g)
 		{
 			name = n;
 			id= i;
-			gpa= g;
+			if (gpa <= 0.0 || gpa > 4.0)
+			{
+				gpa=g;
+			}
+			else
+			{
+				cout << "ERROR404: Number not valid\n";
+			}
+
 			bool full= true;
-		}*/
+		}
 
         // TODO (Parte C): setName(string n)
         // Solo asigna si n no esta vacio.
@@ -111,6 +119,7 @@ int main() {
 
     // TODO (Parte D): Crea un segundo Student usando el constructor con
     // parametros, con datos dummy (ej. "Alice Smith", 1001, 3.7).
-
+	Student s2("Alice Smith", 1001, 3.7);
+	s2.printInfo();
     return 0;
 }
