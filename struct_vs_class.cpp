@@ -1,0 +1,63 @@
+#include <iostream>
+using namespace std;
+
+struct RectangleStruct
+{
+    double width;
+    double height;
+};
+class Rectangle
+{
+	private:
+	double width;
+	double height;
+	public:
+	void setWidth(double w) 
+	{
+		if (w > 0)
+		{
+			width=w;
+		}
+	}
+	void setHeight(double h)
+	{
+	if (h > 0)
+		{
+			height=h;
+		}
+	}
+	double getWidth() const {return width;}
+	double getHeight() const {return height;}
+	double getArea() const 
+	{
+		double area=width*height;
+		return area;
+	}
+};
+// TODO (Parte F): Declara e implementa RectangleClass aqui abajo,
+// convirtiendo RectangleStruct a una class con encapsulacion real:
+//   - width y height como miembros privados
+//   - setWidth(double) y setHeight(double) que solo acepten valores > 0
+//     (si el valor no es valido, no lo asignes, y no hace falta mensaje de error aqui)
+//   - getWidth() const y getHeight() const
+//   - getArea() const
+
+int main() {
+    // Esto compila hoy, sin ningun problema - y ese es el problema:
+    RectangleStruct r;
+    r.width = -5.0;    // no tiene sentido, pero nada lo impide
+    r.height = 3.0;
+    cout << "Struct area (con ancho invalido): " << (r.width * r.height) << endl;
+
+    // TODO (Parte F): Crea un objeto de tipo RectangleClass, intenta asignarle un
+    // width negativo con setWidth(), y confirma que NO se acepta
+    // (el area calculada con datos validos previos, si los hubo,
+    // deberia quedar intacta).
+	Rectangle t;
+	t.setWidth(-9.00);
+	t.setWidth(9.00);
+	t.setHeight(3.00);
+	int a=t.getArea();
+	cout << a << endl;
+    return 0;
+}
